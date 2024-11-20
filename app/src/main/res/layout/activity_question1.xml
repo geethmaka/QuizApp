@@ -8,16 +8,17 @@
     tools:context=".Question1">
 
     <TextView
-        android:id="@+id/q2scoreText"
+        android:id="@+id/q1scoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="257dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="96dp"
         android:layout_marginBottom="501dp"
-        android:text="TextView"
+        android:text="0/5"
         app:layout_constraintBottom_toTopOf="@+id/q2NextButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/q1NextButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/q1radioGroup"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -55,6 +56,7 @@
         android:layout_marginTop="214dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="107dp"
+        android:enabled="false"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +65,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/q1radioGroup"
         android:layout_width="191dp"
         android:layout_height="180dp"
         android:layout_marginEnd="144dp"
@@ -76,22 +78,28 @@
         app:layout_constraintVertical_bias="0.716">
 
         <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="wrap_content"
+            android:id="@+id/q1radioButton1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 1" />
+            android:text="An Operating System" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
+            android:id="@+id/q1radioButton2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 2" />
+            android:text="Web Browser" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
+            android:id="@+id/q1radioButton4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 3" />
+            android:text="Server" />
+
+        <RadioButton
+            android:id="@+id/q1radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="None of the above" />
 
     </RadioGroup>
 
@@ -103,14 +111,15 @@
         android:layout_marginTop="128dp"
         android:layout_marginEnd="288dp"
         android:layout_marginBottom="25dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        android:text="Q1. Android is......"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/q1radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/checkQ1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="163dp"
@@ -121,5 +130,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/q1radioGroup" />
+
+    <TextView
+        android:id="@+id/q1WarningLabel"
+        android:layout_width="353dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="33dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkQ1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q1radioGroup" />
 </androidx.constraintlayout.widget.ConstraintLayout>

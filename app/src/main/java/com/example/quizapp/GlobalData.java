@@ -2,8 +2,27 @@ package com.example.quizapp;
 
 public class GlobalData {
     private static GlobalData instance;
-    private String globalString;
     private int mark;
+
+    public int getQuestionStatus(int i) {
+        return questionStatus[i];
+    }
+
+    public void setQuestionStatus(int i,int questionStatus) {
+        this.questionStatus[i] = questionStatus;
+    }
+
+    private int[] questionStatus= new int[]{-1, -1, -1, -1, -1};
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    private String user;
 
     public int getMark() {
         return mark;
@@ -15,14 +34,16 @@ public class GlobalData {
 
 
 
-    private GlobalData() {
-        // Private constructor to prevent instantiation
-    }
+    private GlobalData() {}
 
     public static GlobalData getInstance() {
         if (instance == null) {
             instance = new GlobalData();
         }
         return instance;
+    }
+
+    public void clearAllData(){
+
     }
 }

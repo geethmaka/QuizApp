@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/q2NextButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/q1radioGroup" />
 
     <Button
         android:id="@+id/q2NextButton"
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/q1radioGroup"
         android:layout_width="148dp"
         android:layout_height="190dp"
         android:layout_marginEnd="144dp"
@@ -63,19 +63,19 @@
         app:layout_constraintVertical_bias="0.716">
 
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/q1radioButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Option 1" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/q1radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Option 2" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/q1radioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Option 3" />
@@ -91,13 +91,13 @@
         android:layout_marginEnd="288dp"
         android:layout_marginBottom="25dp"
         android:text="Q2."
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintBottom_toTopOf="@+id/q1radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/q2scoreText"
+        android:id="@+id/q1scoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="257dp"

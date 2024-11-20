@@ -31,7 +31,7 @@ public class Question2 extends AppCompatActivity {
             startActivity(intent1);
         });
 
-        TextView scoreText = findViewById(R.id.q2scoreText);
+        TextView scoreText = findViewById(R.id.q1scoreText);
         String score = String.valueOf(GlobalData.getInstance().getMark());
         scoreText.setText(score+"/5");
     }

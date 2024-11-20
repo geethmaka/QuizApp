@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                     boolean success= db.adduser(username.getText().toString());
                     if(success){
                         Intent intent = new Intent(MainActivity.this, Question1.class);
-                        intent.putExtra("Name",username.getText().toString());
+                        GlobalData.getInstance().setUser(username.getText().toString());
                         startActivity(intent);
                     }
                 }
