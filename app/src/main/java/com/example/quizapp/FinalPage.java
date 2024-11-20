@@ -20,17 +20,21 @@ public class FinalPage extends AppCompatActivity {
         setContentView(R.layout.activity_final_page);
 
         TextView grade = findViewById(R.id.gradeText);
+        TextView username = findViewById(R.id.usernametxt);
         int mark = GlobalData.getInstance().getMark();
-        grade.setText(String.valueOf(mark)+"/5");
+        username.setText(GlobalData.getInstance().getUser()+",");
+        grade.setText(mark+"/5");
 
         Button home =findViewById(R.id.gotoHomePage);
         Button leaderBoard = findViewById(R.id.gotoLeaderboard);
         home.setOnClickListener(v->{
+            GlobalData.getInstance().clearAllData();
             Intent intent1 = new Intent(FinalPage.this, MainActivity.class);
             startActivity(intent1);
         });
 
         leaderBoard.setOnClickListener(v->{
+            GlobalData.getInstance().clearAllData();
             Intent intent1 = new Intent(FinalPage.this, Leaderboard.class);
             startActivity(intent1);
         });

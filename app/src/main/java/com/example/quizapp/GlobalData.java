@@ -2,7 +2,7 @@ package com.example.quizapp;
 
 public class GlobalData {
     private static GlobalData instance;
-    private int mark;
+    private int mark=0;
 
     public int getQuestionStatus(int i) {
         return questionStatus[i];
@@ -44,6 +44,8 @@ public class GlobalData {
     }
 
     public void clearAllData(){
-
+        this.questionStatus= new int[]{-1, -1, -1, -1, -1};
+        this.mark=0;
+        this.user="";
     }
 }

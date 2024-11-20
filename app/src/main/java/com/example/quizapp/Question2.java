@@ -25,10 +25,12 @@ public class Question2 extends AppCompatActivity {
         Button q2NextButton = findViewById(R.id.q2NextButton);
         Button q2Check = findViewById(R.id.checkq2);
         TextView warning = findViewById(R.id.q2WarningLabel);
+        RadioGroup q2radioGroup = findViewById(R.id.q2radioGroup);
 
-        String CorrectAnswer = "Mobile Devices";
+        int questionNumber = 1;
+        String CorrectAnswer = "Mobile devices";
 
-        Utils.InitPage(welcome,q2score,1,warning,CorrectAnswer,q2NextButton,q2Check);
+        Utils.InitPage(welcome,q2score,questionNumber,warning,CorrectAnswer,q2NextButton,q2Check);
 
 
         q2NextButton.setOnClickListener(v->{
@@ -42,16 +44,14 @@ public class Question2 extends AppCompatActivity {
         });
 
         q2Check.setOnClickListener(v->{
-            RadioGroup radioGroup = findViewById(R.id.q2radioGroup);
-
-            int selectedId = radioGroup.getCheckedRadioButtonId(); // Get the ID of the selected RadioButton
+            int selectedId = q2radioGroup.getCheckedRadioButtonId(); // Get the ID of the selected RadioButton
 
             if (selectedId != -1) { // Check if any button is selected
                 RadioButton selectedRadioButton = findViewById(selectedId);
                 String selectedText = selectedRadioButton.getText().toString();
 
                 // Instead of if it's just checking the answer value
-                Utils.AnswerQuestion(this,q2score,q2NextButton,radioGroup,q2Check, selectedText.equals(CorrectAnswer));
+                Utils.AnswerQuestion(this,q2score,q2NextButton,q2radioGroup,q2Check, selectedText.equals(CorrectAnswer),questionNumber,CorrectAnswer);
 
             } else {
                 Toast.makeText(this, "No selection made", Toast.LENGTH_SHORT).show();

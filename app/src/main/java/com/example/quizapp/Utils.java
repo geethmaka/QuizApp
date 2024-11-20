@@ -14,17 +14,17 @@ public class Utils {
     }
 
 
-    public static void AnswerQuestion(Context c, TextView score, Button next, RadioGroup radioGroup,Button check,Boolean correct){
+    public static void AnswerQuestion(Context c, TextView score, Button next, RadioGroup radioGroup,Button check,Boolean correct,int questionNumber,String answer){
         if(correct){
             Toast.makeText(c, "Correct Answer!", Toast.LENGTH_SHORT).show();
             int mark = GlobalData.getInstance().getMark();
             mark++;
             GlobalData.getInstance().setMark(mark);
             score.setText(mark+"/5");
-            GlobalData.getInstance().setQuestionStatus(0,1);
+            GlobalData.getInstance().setQuestionStatus(questionNumber,1);
         }else{
-            GlobalData.getInstance().setQuestionStatus(0,0);
-            Toast.makeText(c, "Correct Answer is : An Operating System", Toast.LENGTH_SHORT).show();
+            GlobalData.getInstance().setQuestionStatus(questionNumber,0);
+            Toast.makeText(c, "Correct Answer is : "+answer, Toast.LENGTH_SHORT).show();
         }
 
         for (int i = 0; i < radioGroup.getChildCount(); i++) {
