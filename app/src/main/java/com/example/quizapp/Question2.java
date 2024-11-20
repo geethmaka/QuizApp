@@ -3,7 +3,10 @@ package com.example.quizapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,10 +18,17 @@ public class Question2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_question2);
-
+        TextView welcome= findViewById(R.id.welcomeText);
+        TextView q2score= findViewById(R.id.q2scoreText);
 
         Button q2BackButton = findViewById(R.id.q2BackButton);
         Button q2NextButton = findViewById(R.id.q2NextButton);
+        Button q2Check = findViewById(R.id.checkq2);
+        TextView warning = findViewById(R.id.q2WarningLabel);
+
+        String CorrectAnswer = "Mobile Devices";
+
+        Utils.InitPage(welcome,q2score,1,warning,CorrectAnswer,q2NextButton,q2Check);
 
 
         q2NextButton.setOnClickListener(v->{
@@ -31,8 +41,21 @@ public class Question2 extends AppCompatActivity {
             startActivity(intent1);
         });
 
-        TextView scoreText = findViewById(R.id.q1scoreText);
-        String score = String.valueOf(GlobalData.getInstance().getMark());
-        scoreText.setText(score+"/5");
+        q2Check.setOnClickListener(v->{
+            RadioGroup radioGroup = findViewById(R.id.q2radioGroup);
+
+            int selectedId = radioGroup.getCheckedRadioButtonId(); // Get the ID of the selected RadioButton
+
+            if (selectedId != -1) { // Check if any button is selected
+                RadioButton selectedRadioButton = findViewById(selectedId);
+                String selectedText = selectedRadioButton.getText().toString();
+
+                // Instead of if it's just checking the answer value
+                Utils.AnswerQuestion(this,q2score,q2NextButton,radioGroup,q2Check, selectedText.equals(CorrectAnswer));
+
+            } else {
+                Toast.makeText(this, "No selection made", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

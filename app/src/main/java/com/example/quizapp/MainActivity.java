@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,12 +29,19 @@ public class MainActivity extends AppCompatActivity {
         db = new DatabaseHelper(MainActivity.this);
 
         continue_button.setOnClickListener(v-> {
-                    boolean success= db.adduser(username.getText().toString());
-                    if(success){
-                        Intent intent = new Intent(MainActivity.this, Question1.class);
-                        GlobalData.getInstance().setUser(username.getText().toString());
-                        startActivity(intent);
-                    }
+            if(!username.getText().toString().isEmpty()){
+                boolean success= db.adduser(username.getText().toString());
+                if(success){
+                    Intent intent = new Intent(MainActivity.this, Question1.class);
+                    GlobalData.getInstance().setUser(username.getText().toString());
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                Toast.makeText(this, "Username Cannot Be Empty!!!", Toast.LENGTH_SHORT).show();
+            }
+
                 }
         );
 

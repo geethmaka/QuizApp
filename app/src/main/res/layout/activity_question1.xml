@@ -9,29 +9,25 @@
 
     <TextView
         android:id="@+id/q1scoreText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="257dp"
+        android:layout_width="22dp"
+        android:layout_height="19dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="501dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="332dp"
         android:text="0/5"
-        app:layout_constraintBottom_toTopOf="@+id/q2NextButton"
+        app:layout_constraintBottom_toTopOf="@+id/q1WarningLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="275dp"
-        android:layout_marginBottom="651dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="17dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/q1scoreText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,30 +35,29 @@
         android:id="@+id/q1BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="214dp"
-        android:layout_marginEnd="195dp"
-        android:layout_marginBottom="107dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="110dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/q1NextButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/q1radioGroup"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/q1WarningLabel" />
 
     <Button
         android:id="@+id/q1NextButton"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginTop="214dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="107dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="110dp"
         android:enabled="false"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/q1BackButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/q1WarningLabel" />
 
     <RadioGroup
         android:id="@+id/q1radioGroup"
@@ -90,7 +85,7 @@
             android:text="Web Browser" />
 
         <RadioButton
-            android:id="@+id/q1radioButton4"
+            android:id="@+id/q1radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Server" />

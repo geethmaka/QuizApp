@@ -27,13 +27,9 @@ public class Question1 extends AppCompatActivity {
         Button q1Check = findViewById(R.id.checkQ1);
         TextView warning = findViewById(R.id.q1WarningLabel);
 
-        welcome.setText("Welcome, "+GlobalData.getInstance().getUser());
-        q1score.setText(GlobalData.getInstance().getMark()+"/5");
-        if(GlobalData.getInstance().getQuestionStatus(0)!=-1){
-            warning.setText("You have already answered this Question! The Correct Answer is : An Operating System");
-            q1NextButton.setEnabled(true);
-            q1Check.setEnabled(false);
-        }
+        String CorrectAnswer = "An Operating System";
+
+        Utils.InitPage(welcome,q1score,0,warning,CorrectAnswer,q1NextButton,q1Check);
 
 
         q1NextButton.setOnClickListener(v->{
@@ -54,27 +50,13 @@ public class Question1 extends AppCompatActivity {
             if (selectedId != -1) { // Check if any button is selected
                 RadioButton selectedRadioButton = findViewById(selectedId);
                 String selectedText = selectedRadioButton.getText().toString();
-                if(selectedText.equals("An Operating System")){
-                    Toast.makeText(this, "Correct Answer!", Toast.LENGTH_SHORT).show();
-                    q1score.setText("1/5");
-                    GlobalData.getInstance().setMark(1);
-                    q1NextButton.setEnabled(true);
-                    for (int i = 0; i < radioGroup.getChildCount(); i++) {
-                        View child = radioGroup.getChildAt(i);
-                        if (child instanceof RadioButton) {
-                            child.setEnabled(false); // Disable the RadioButton
-                        }
-                    }
-                    GlobalData.getInstance().setQuestionStatus(0,1);
-                }else{
-                    GlobalData.getInstance().setQuestionStatus(0,0);
-                    Toast.makeText(this, "Correct Answer is : An Operating System", Toast.LENGTH_SHORT).show();
-                }
+
+                // Instead of if it's just checking the answer value
+                Utils.AnswerQuestion(this,q1score,q1NextButton,radioGroup,q1Check, selectedText.equals(CorrectAnswer));
+
             } else {
                 Toast.makeText(this, "No selection made", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 }
