@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -136,9 +137,10 @@ class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void deleteAllData(){
+    boolean deleteAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
+        return true;
     }
 
 }

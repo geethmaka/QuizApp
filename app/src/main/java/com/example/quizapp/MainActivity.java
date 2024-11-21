@@ -64,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.nav_home) {
                     Intent profileIntent = new Intent(MainActivity.this, Leaderboard.class);
                     startActivity(profileIntent);
-                } else if (item.getItemId() == R.id.nav_profile) {
-                    Intent profileIntent = new Intent(MainActivity.this, MainActivity.class);
+                } else if (item.getItemId() == R.id.references) {
+                    Intent profileIntent = new Intent(MainActivity.this, References.class);
                     startActivity(profileIntent);
-                } else if (item.getItemId() == R.id.nav_settings) {
-                    Intent settingsIntent = new Intent(MainActivity.this, MainActivity.class);
+                } else if (item.getItemId() == R.id.resetData) {
+                    Intent settingsIntent = new Intent(MainActivity.this, ResetData.class);
                     startActivity(settingsIntent);
                 }
 

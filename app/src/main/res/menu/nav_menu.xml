@@ -1,14 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Home" />
+        android:title="About Us" />
     <item
-        android:id="@+id/nav_profile"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Profile" />
+        android:id="@+id/references"
+        android:title="References" />
     <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_launcher_background"
-        android:title="Settings" />
+        android:id="@+id/resetData"
+        android:title="Reset Data" />
 </menu>

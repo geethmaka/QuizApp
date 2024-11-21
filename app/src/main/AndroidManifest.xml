@@ -13,6 +13,12 @@
         android:theme="@style/Theme.QuizApp"
         tools:targetApi="31">
         <activity
+            android:name=".ResetData"
+            android:exported="false" />
+        <activity
+            android:name=".References"
+            android:exported="false" />
+        <activity
             android:name=".FinalPage"
             android:exported="false" />
         <activity
