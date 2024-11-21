@@ -45,11 +45,11 @@
             android:id="@+id/profileImage"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/baseline_perm_identity_24"
             android:contentDescription="profileImage"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/image_anojan_round"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Name -->
         <TextView
