@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Geethmaka"
+        android:icon="@drawable/baseline_perm_identity_24"
+        android:id="@+id/geethmakaNav"/>
+    <item android:title="Anojan"
+        android:icon="@drawable/baseline_perm_identity_24"
+        android:id="@+id/anojanNav"/>
+    <item android:title="Aarju"
+        android:icon="@drawable/baseline_perm_identity_24"
+        android:id="@+id/aarjuNav"/>
+</menu>

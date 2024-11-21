@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Use if-else statements instead of switch
                 if (item.getItemId() == R.id.nav_home) {
-                    Intent profileIntent = new Intent(MainActivity.this, Leaderboard.class);
+                    Intent profileIntent = new Intent(MainActivity.this, AboutUs.class);
                     startActivity(profileIntent);
                 } else if (item.getItemId() == R.id.references) {
                     Intent profileIntent = new Intent(MainActivity.this, References.class);

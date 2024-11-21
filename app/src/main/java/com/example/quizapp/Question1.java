@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Question1 extends AppCompatActivity {
@@ -39,8 +40,20 @@ public class Question1 extends AppCompatActivity {
         });
 
         q1BackButton.setOnClickListener(v->{
-            Intent intent1 = new Intent(Question1.this, MainActivity.class);
-            startActivity(intent1);
+            new AlertDialog.Builder(this)
+                    .setTitle("Exit")
+                    .setMessage("Are you sure you want to quit? All your progress will be lost!")
+                    .setCancelable(false) // Prevent dialog from being canceled by clicking outside
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        DatabaseHelper db = new DatabaseHelper(Question1.this);
+                        db.deleteOneRow(String.valueOf(GlobalData.getInstance().getId()));
+                        Intent intent1 = new Intent(Question1.this, MainActivity.class);
+                        startActivity(intent1);
+                    })
+                    .setNegativeButton("No", (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .show();
         });
 
         q1Check.setOnClickListener(v->{
