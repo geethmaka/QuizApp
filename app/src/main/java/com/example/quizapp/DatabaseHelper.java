@@ -40,10 +40,10 @@ class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean adduser(String username){
+    public int adduser(String username){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        boolean success=false;
+        int success=0;
         boolean userFound = false;
 
         cv.put(COLUMN_UserName, username);
@@ -73,10 +73,11 @@ class DatabaseHelper extends SQLiteOpenHelper {
                     Toast.makeText(context, "Internal Error!", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
-                    success=true;
+                    success=1;
                 }
             }else{
-                Toast.makeText(context, "Username already taken!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Username already taken!", Toast.LENGTH_SHORT).show();
+                success=-1;
             }
             db.close();
         }
@@ -94,21 +95,36 @@ class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-//    void updateData(String row_id, String title, String author, String pages){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//        cv.put(COLUMN_TITLE, title);
-//        cv.put(COLUMN_AUTHOR, author);
-//        cv.put(COLUMN_PAGES, pages);
-//
-//        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
-//        if(result == -1){
-//            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-//        }else {
-//            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
-//        }
-//
-//    }
+    public int getIdByName(String name) {
+        int id = -1; // Default value if no record is found
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT _id FROM " + TABLE_NAME + " WHERE "+COLUMN_UserName +" = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{name});
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) { // Move to the first row
+                id = cursor.getInt(0); // Get the ID (first column)
+            }
+            cursor.close(); // Close the cursor to release resources
+        }
+        db.close();
+        return id;
+    }
+
+
+    void updateData(String row_id, int mark){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_Marks,mark);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to update data!", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Marks Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
     void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();

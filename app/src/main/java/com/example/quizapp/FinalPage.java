@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class FinalPage extends AppCompatActivity {
-
+    DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +22,13 @@ public class FinalPage extends AppCompatActivity {
         TextView grade = findViewById(R.id.gradeText);
         TextView username = findViewById(R.id.usernametxt);
         int mark = GlobalData.getInstance().getMark();
+
         username.setText(GlobalData.getInstance().getUser()+",");
         grade.setText(mark+"/5");
+
+        String uid  = String.valueOf(GlobalData.getInstance().getId());
+        db = new DatabaseHelper(FinalPage.this);
+        db.updateData(uid,mark);
 
         Button home =findViewById(R.id.gotoHomePage);
         Button leaderBoard = findViewById(R.id.gotoLeaderboard);

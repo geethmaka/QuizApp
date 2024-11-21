@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -61,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // Use if-else statements instead of switch
                 if (item.getItemId() == R.id.nav_home) {
-                    Toast.makeText(MainActivity.this, "Home selected", Toast.LENGTH_SHORT).show();
-                } else if (item.getItemId() == R.id.nav_profile) {
                     Intent profileIntent = new Intent(MainActivity.this, Leaderboard.class);
+                    startActivity(profileIntent);
+                } else if (item.getItemId() == R.id.nav_profile) {
+                    Intent profileIntent = new Intent(MainActivity.this, MainActivity.class);
                     startActivity(profileIntent);
                 } else if (item.getItemId() == R.id.nav_settings) {
                     Intent settingsIntent = new Intent(MainActivity.this, MainActivity.class);
@@ -79,12 +81,31 @@ public class MainActivity extends AppCompatActivity {
         // Continue Button OnClickListener
         continue_button.setOnClickListener(v -> {
             if (!username.getText().toString().isEmpty()) {
-                boolean success = db.adduser(username.getText().toString());
-                if (success) {
+                int success = db.adduser(username.getText().toString());
+                if (success==1) {
                     Intent intent = new Intent(MainActivity.this, Question1.class);
+                    int userid = db.getIdByName(username.getText().toString());
                     GlobalData.getInstance().setUser(username.getText().toString());
+                    GlobalData.getInstance().setId(userid);
                     startActivity(intent);
-                } else {
+                } else if(success==-1){
+                    new AlertDialog.Builder(this)
+                            .setTitle("Confirmation") // Title of the dialog
+                            .setMessage("This username is already taken! Are you sure you want to proceed?") // Message in the dialog
+                            .setPositiveButton("Yes", (dialog, which) -> {
+                                Intent intent = new Intent(MainActivity.this, Question1.class);
+                                int userid = db.getIdByName(username.getText().toString());
+                                GlobalData.getInstance().setUser(username.getText().toString());
+                                GlobalData.getInstance().setId(userid);
+                                startActivity(intent);
+                            })
+                            .setNegativeButton("No, Choose a different name", (dialog, which) -> {
+                            })
+                            .setCancelable(true) // Allow dismissal by touching outside
+                            .show();
+
+                }
+                else {
                     Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show();
                 }
             } else {

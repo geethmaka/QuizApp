@@ -4,6 +4,16 @@ public class GlobalData {
     private static GlobalData instance;
     private int mark=0;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
     public int getQuestionStatus(int i) {
         return questionStatus[i];
     }

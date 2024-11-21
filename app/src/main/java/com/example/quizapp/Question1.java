@@ -2,7 +2,6 @@ package com.example.quizapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,7 +19,7 @@ public class Question1 extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_question1);
         TextView welcome= findViewById(R.id.welcomeText);
-        TextView q1score= findViewById(R.id.q1scoreText);
+        TextView q1score= findViewById(R.id.Score);
 
         Button q1BackButton = findViewById(R.id.q1BackButton);
         Button q1NextButton = findViewById(R.id.q1NextButton);

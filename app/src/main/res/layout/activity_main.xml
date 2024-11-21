@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             app:titleTextColor="@android:color/white"
-            app:title="Your App Title" />
+            app:title="Quiz App" />
 
         <Button
             android:id="@+id/continue_button"
